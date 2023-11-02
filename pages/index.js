@@ -17,11 +17,7 @@ import Gallery from "@/components/Gallery";
 import React from "react";
 
 const Index = () => {
-  return (
-    <>
-      <Gallery />
-    </>
-  );
+  return <Gallery />;
 };
 
 export default Index;
