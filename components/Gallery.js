@@ -83,6 +83,7 @@ const Gallery = () => {
         <div className="flex flex-col gap-y-2">
           <GalleryHeader
             selectThumbnails={selectThumbnails}
+            setSelectThumbnails={setSelectThumbnails}
             handleDeleteClick={handleDeleteClick}
           />
           <hr />
@@ -97,6 +98,7 @@ const Gallery = () => {
                   image={image}
                   index={index}
                   selectThumbnails={selectThumbnails}
+                  setSelectThumbnails={setSelectThumbnails}
                   handleDragStart={handleDragStart}
                   handleDrop={handleDrop}
                   dragging={dragging}
