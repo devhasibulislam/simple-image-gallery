@@ -59,6 +59,8 @@ const Index = () => {
   // Handle drag over
   const handleDragOver = (e) => {
     e.preventDefault();
+
+    console.log(e);
   };
 
   // Handle drop image
@@ -78,7 +80,7 @@ const Index = () => {
 
   return (
     <main
-      className={`h-screen w-screen flex flex-row items-center justify-center md:p-0 p-4 ${inter.className}`}
+      className={`min-h-screen w-screen flex flex-row items-center justify-center md:p-0 p-4 ${inter.className}`}
     >
       <section className="lg:w-1/2 md:w-3/4 w-full bg-white rounded-lg shadow">
         <div className="flex flex-col gap-y-2">
@@ -136,7 +138,8 @@ const Index = () => {
                 >
                   <Image
                     src={image.thumbnail}
-                    alt={"image" + index}
+                    // alt={"image" + index}
+                    alt={image.id}
                     height={index === 0 ? 390 : 184}
                     width={index === 0 ? 390 : 184}
                     className={
@@ -183,7 +186,7 @@ const Index = () => {
                   )}
                 </div>
               ))}
-              <div className="relative border-2 border-dashed rounded-lg p-4">
+              <div className="relative border-2 border-dashed rounded-lg p-4 hover:bg-gray-50 transition-colors ease-linear">
                 <input
                   type="file"
                   multiple
