@@ -26,6 +26,19 @@ const Index = () => {
   const [dragging, setDragging] = useState(false);
   const [draggedImage, setDraggedImage] = useState(null);
 
+  const handleFileChange = (e) => {
+    const selectedFiles = e.target.files;
+
+    const newImages = Array.from(selectedFiles).map((file, index) => {
+      const id = thumbnails.length + index + 1;
+      const thumbnail = URL.createObjectURL(file);
+
+      return { id, thumbnail };
+    });
+
+    setThumbnails([...thumbnails, ...newImages]);
+  };
+
   const handleDeleteClick = () => {
     const updatedImages = thumbnails.filter(
       (image) => !selectThumbnails.some((selected) => selected.id === image.id)
@@ -163,6 +176,7 @@ const Index = () => {
                   id="images"
                   className="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer"
                   title="Try to upload photos..."
+                  onChange={handleFileChange}
                 />
                 <div className="h-full w-full flex flex-col justify-center items-center gap-y-4">
                   <Image
