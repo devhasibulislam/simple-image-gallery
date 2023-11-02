@@ -25,6 +25,7 @@ const Index = () => {
   const [thumbnails, setThumbnails] = useState(images);
   const [dragging, setDragging] = useState(false);
   const [draggedImage, setDraggedImage] = useState(null);
+  const [draggedIndex, setDraggedIndex] = useState(null);
 
   // Handle new images
   const handleFileChange = (e) => {
@@ -59,8 +60,7 @@ const Index = () => {
   // Handle drag over
   const handleDragOver = (e) => {
     e.preventDefault();
-
-    console.log(e);
+    e?.target?.children[0]?.alt && setDraggedIndex(e?.target?.children[0]?.alt);
   };
 
   // Handle drop image
@@ -124,7 +124,7 @@ const Index = () => {
                 <div
                   key={index}
                   className={
-                    "group border rounded-lg relative before:content-[''] before:absolute before:h-full before:w-full before:rounded-lg before:transition-colors before:cursor-move" +
+                    "group relative before:content-[''] before:absolute before:h-full before:w-full before:rounded-lg before:transition-colors before:cursor-move" +
                     (index === 0
                       ? " md:col-span-2 md:row-span-2"
                       : " col-span-1") +
@@ -143,7 +143,7 @@ const Index = () => {
                     height={index === 0 ? 390 : 184}
                     width={index === 0 ? 390 : 184}
                     className={
-                      "h-full w-full max-w-full rounded-lg object-contain" +
+                      "h-full w-full max-w-full rounded-lg object-contain border-2" +
                       " " +
                       (selectThumbnails.find(
                         (photo) => photo.id === image.id
@@ -178,11 +178,10 @@ const Index = () => {
                       else setSelectThumbnails([...selectThumbnails, image]);
                     }}
                   />
-                  {dragging && (
-                    <div className="hidden">Drop Here</div>
-                    // <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-white border-2 border-dashed">
-                    //   Drop Here
-                    // </div>
+                  {dragging && Number(draggedIndex) === Number(image.id) && (
+                    <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-white border-2 border-dashed rounded-lg">
+                      Drop Here
+                    </div>
                   )}
                 </div>
               ))}
