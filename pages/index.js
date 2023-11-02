@@ -122,10 +122,13 @@ const Index = () => {
                 <div
                   key={index}
                   className={
-                    "group border rounded-lg relative before:content-[''] before:absolute before:h-full before:w-full hover:before:bg-black/50 before:rounded-lg before:transition-colors before:cursor-move" +
+                    "group border rounded-lg relative before:content-[''] before:absolute before:h-full before:w-full before:rounded-lg before:transition-colors before:cursor-move" +
                     (index === 0
                       ? " md:col-span-2 md:row-span-2"
-                      : " col-span-1")
+                      : " col-span-1") +
+                    (selectThumbnails.find((photo) => photo.id === image.id)
+                      ? " opacity-100"
+                      : " hover:before:bg-black/50")
                   }
                   draggable={true}
                   onDragStart={() => handleDragStart(image)}
