@@ -201,7 +201,7 @@ const Index = () => {
                     width={20}
                     priority
                   />
-                  Add Images
+                  <span className="whitespace-nowrap">Add Images</span>
                 </div>
               </div>
             </div>
