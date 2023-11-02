@@ -96,9 +96,9 @@ const Index = () => {
                       type="checkbox"
                       name="select"
                       id="select"
-                      checked={selectThumbnails.length}
-                      className="h-5 w-5 accent-blue-500"
-                      readOnly
+                      checked={selectThumbnails.length > 0}
+                      className="h-5 w-5 accent-blue-500 cursor-pointer"
+                      onChange={() => setSelectThumbnails([])}
                     />
                     {selectThumbnails.length} Files Selected
                   </label>
