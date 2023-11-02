@@ -1,4 +1,4 @@
-# Task for the ` React JS Developers`
+# Task for the `React JS Developers`
 
 ---
 
