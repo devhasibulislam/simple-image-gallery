@@ -15,7 +15,11 @@
 
 import React from "react";
 
-const GalleryHeader = ({ selectThumbnails, handleDeleteClick }) => {
+const GalleryHeader = ({
+  selectThumbnails,
+  setSelectThumbnails,
+  handleDeleteClick,
+}) => {
   return (
     <nav className="py-4 px-6">
       <article className="flex flex-row justify-between items-center">
