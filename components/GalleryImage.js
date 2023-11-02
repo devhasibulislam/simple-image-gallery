@@ -21,6 +21,7 @@ const GalleryImage = ({
   image,
   index,
   selectThumbnails,
+  setSelectThumbnails,
   handleDragStart,
   handleDrop,
   dragging,
