@@ -26,6 +26,7 @@ const Index = () => {
   const [dragging, setDragging] = useState(false);
   const [draggedImage, setDraggedImage] = useState(null);
 
+  // Handle new images
   const handleFileChange = (e) => {
     const selectedFiles = e.target.files;
 
@@ -39,6 +40,7 @@ const Index = () => {
     setThumbnails([...thumbnails, ...newImages]);
   };
 
+  // Handle delete images
   const handleDeleteClick = () => {
     const updatedImages = thumbnails.filter(
       (image) => !selectThumbnails.some((selected) => selected.id === image.id)
@@ -48,15 +50,18 @@ const Index = () => {
     setSelectThumbnails([]);
   };
 
+  // Handle drag start
   const handleDragStart = (image) => {
     setDragging(true);
     setDraggedImage(image);
   };
 
+  // Handle drag over
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
+  // Handle drop image
   const handleDrop = (targetIndex) => {
     setDragging(false);
 
