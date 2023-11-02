@@ -167,9 +167,10 @@ const Index = () => {
                     }}
                   />
                   {dragging && (
-                    <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-white border-2 border-dashed">
-                      Drop Here
-                    </div>
+                    <div className="hidden">Drop Here</div>
+                    // <div className="hidden absolute top-0 left-0 h-full w-full flex justify-center items-center bg-white border-2 border-dashed">
+                    //   Drop Here
+                    // </div>
                   )}
                 </div>
               ))}
