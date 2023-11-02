@@ -139,7 +139,13 @@ const Index = () => {
                     alt={"image" + index}
                     height={index === 0 ? 390 : 184}
                     width={index === 0 ? 390 : 184}
-                    className="h-full w-full max-w-full rounded-lg object-contain"
+                    className={
+                      "h-full w-full max-w-full rounded-lg object-contain" +
+                      " " +
+                      (selectThumbnails.find(
+                        (photo) => photo.id === image.id
+                      ) && "opacity-70")
+                    }
                   />
                   <input
                     type="checkbox"
