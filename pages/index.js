@@ -115,7 +115,7 @@ const Index = () => {
           <hr />
           <section className="h-full w-full p-6">
             <div
-              className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-4"
+              className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-6"
               onDragOver={handleDragOver}
             >
               {thumbnails.map((image, index) => (
